@@ -1,9 +1,11 @@
 //! A parser for Wavefront's `.obj` file format for storing 3D meshes.
 use lex::PeekableLexer;
-use std::borrow::ToOwned;
-use std::cmp::Ordering;
-use std::cmp::Ordering::{Equal, Greater, Less};
-use std::mem;
+use alloc::borrow::ToOwned;
+use alloc::string::String;
+use alloc::{format, vec};
+use alloc::vec::Vec;
+use core::cmp::Ordering::{self, Equal, Greater, Less};
+use core::mem;
 
 use lex::{Lexer, ParseError};
 use util::OrderingExt;

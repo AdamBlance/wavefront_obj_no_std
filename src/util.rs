@@ -1,4 +1,4 @@
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 /// Extensions to orderings.
 pub(crate) trait OrderingExt {

@@ -1,5 +1,5 @@
-use std::fmt;
-use std::str;
+use alloc::string::String;
+use core::{fmt, str};
 
 /// A parsing error, with location information.
 #[derive(Debug, PartialEq)]
@@ -16,7 +16,7 @@ impl fmt::Display for ParseError {
   }
 }
 
-impl std::error::Error for ParseError {}
+impl core::error::Error for ParseError {}
 
 #[inline]
 fn is_whitespace_except_newline(c: u8) -> bool {

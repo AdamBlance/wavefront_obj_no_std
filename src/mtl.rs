@@ -1,8 +1,13 @@
 //! A parser for Wavefront's `.mtl` file format, for storing information about
 //! the material of which a 3D mesh is composed.
-use std::borrow::ToOwned;
-use std::cmp::Ordering;
-use std::cmp::Ordering::{Equal, Greater, Less};
+use alloc::borrow::ToOwned;
+use alloc::format;
+use alloc::string::String;
+use alloc::vec::Vec;
+use core::cmp::Ordering::{self, Equal, Greater, Less};
+
+#[cfg(test)]
+use alloc::vec;
 
 pub use lex::ParseError;
 use lex::{Lexer, PeekableLexer};
