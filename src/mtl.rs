@@ -11,7 +11,7 @@ use alloc::vec;
 
 pub use lex::ParseError;
 use lex::{Lexer, PeekableLexer};
-use util::OrderingExt;
+use util::{abs, OrderingExt};
 
 /// A set of materials in one `.mtl` file.
 #[derive(Clone, Debug, PartialEq)]
@@ -63,7 +63,7 @@ pub struct Color {
 }
 
 fn fuzzy_cmp(a: f64, b: f64, delta: f64) -> Ordering {
-  if (a - b).abs() <= delta {
+  if abs(a - b) <= delta {
     Equal
   } else if a < b {
     Less

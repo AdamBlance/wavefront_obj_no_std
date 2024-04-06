@@ -8,7 +8,7 @@ use core::cmp::Ordering::{self, Equal, Greater, Less};
 use core::mem;
 
 use lex::{Lexer, ParseError};
-use util::OrderingExt;
+use util::{abs, OrderingExt};
 
 /// A set of objects, as listed in an `.obj` file.
 #[derive(Clone, Debug, PartialEq)]
@@ -102,7 +102,7 @@ pub struct TVertex {
 }
 
 fn fuzzy_cmp(a: f64, b: f64, delta: f64) -> Ordering {
-  if (a - b).abs() <= delta {
+  if abs(a - b) <= delta {
     Equal
   } else if a < b {
     Less

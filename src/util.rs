@@ -14,3 +14,7 @@ impl OrderingExt for Ordering {
     }
   }
 }
+
+pub(crate) fn abs(x: f64) -> f64 {
+  if x < 0.0 { -1.0*x } else { x }
+}
